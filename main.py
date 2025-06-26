@@ -34,7 +34,8 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         state["step"] = "summary"
         profile = generate_profile(state)
         save_user_data(user_id, state)
-        await update.message.reply_text(f"כרטיס מוכן:
+        await update.message.reply_text(f'כרטיס מוכן: {some_variable}')
+
 
 {profile}
 
