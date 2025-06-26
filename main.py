@@ -34,19 +34,9 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         state["step"] = "summary"
         profile = generate_profile(state)
         save_user_data(user_id, state)
-        await update.message.reply_text(f'כרטיס מוכן: {some_variable}')
-
-
-{profile}
-
-להצעות נוספות – המשך מעקב כאן.")
+        await update.message.reply_text(f"כרטיס מוכן:\n\n{profile}\n\nלהצעות נוספות - המשך מעקב כאן.")
 
 def main():
     app = Application.builder().token(TELEGRAM_TOKEN).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("new", new))
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
-    app.run_polling()
-
-if __name__ == "__main__":
-    main()
