@@ -1,6 +1,5 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-from config import SHEET_ID
 
 def save_user_data(user_id, data):
     try:
